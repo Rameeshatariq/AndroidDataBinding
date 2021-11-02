@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Very  important note:  Databinding will not work if you don't include all your layout in <layout tag> -->
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Adding Data variables: -->
+    <data>
+        <variable
+            name="grader"
+            type="com.example.androidjetpack.StudentData" />
+        
+        <variable
+            name="presenter"
+            type="com.example.androidjetpack.MainActivityPresenter" />
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#42C347"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@={grader.student}"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@={grader.grade}"
+            android:textSize="24sp" />
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@={grader.grade}"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#E91E63"
+            android:onClick="@{() -> presenter.onShowData(grader)}"
+            android:text="Show Data Model" />
+
+    </LinearLayout>
+
+</layout>
